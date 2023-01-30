@@ -35,7 +35,7 @@ function Keyboard(
         setKeyboard(newKeys)
     }
     return (
-        <div className="p-6">
+        <div className="px-6">
             <div className="my-4 w-full flex justify-end">
                 <button
                     className="border-2 border-neutral-700 bg-neutral-400 p-1 rounded-lg flex items-center"
