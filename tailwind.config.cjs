@@ -18,8 +18,8 @@ module.exports = {
         babyblue: '#C3E0E5'
       },
       backgroundImage: {
-        drearylake : "url('./DrearyLake.jpg')",
-        forestshore : "url('./ForestShore.jpg')"
+        drearylake : "url('/DrearyLake.jpg')",
+        forestshore : "url('/ForestShore.jpg')"
 
       }
     },
