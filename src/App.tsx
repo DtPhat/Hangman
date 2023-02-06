@@ -41,7 +41,7 @@ function App() {
     if (guessedLetters.includes(letter) || isLoser || isWinner) return
     if (wordToGuess.includes(letter)) {
       setChances(preChances => {
-        if (preChances >= 12) return 12
+        if (preChances >= 15) return 15
         return (preChances + 1)
       })
     } else {
