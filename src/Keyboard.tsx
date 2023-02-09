@@ -34,11 +34,13 @@ function Keyboard(
         setChances(prevChances => prevChances - 1)
         setKeyboard(newKeys)
     }
+    const buttonShadow = ""
     return (
         <div className="px-6">
             <div className="my-4 w-full flex justify-end">
                 <button
-                    className="border-2 border-neutral-700 bg-neutral-400 p-1 rounded-lg flex items-center"
+                    className={`border-2 border-neutral-700 bg-neutral-400 p-1 rounded-lg flex items-center shadow-normal 
+                    ${!allDisabled && "active:shadow-down"} ${!allDisabled && "active:translate-y-1"} ${!allDisabled && "active:translate-x-[-1px]"}`}
                     onClick={randomizeKeys}
                     disabled={allDisabled}>
                     <span className="pr-2 text-lg font-semibold">Reroll keys</span>
@@ -50,12 +52,15 @@ function Keyboard(
                 {keyboard.map((key, index) => {
                     const active = activeLetters.includes(key)
                     const inactive = inactiveLetters.includes(key)
+                    const disabled = active || inactive || allDisabled
                     return (
                         <button
                             onClick={() => addGuessedLetters(key)}
-                            className={`capitalize border-2 border-gray-700 rounded-md text-2xl w-12 h-12 font-semibold bg-zinc-400 ${active && 'bg-midnightblue text-babyblue border-darkblue'} ${inactive && 'bg-gray-500 text-neutral-400 border-stone-700'}`}
+                            className={`capitalize border-2 border-gray-700 rounded-md text-2xl w-12 h-12 font-semibold 
+                            bg-zinc-400 ${active && 'bg-midnightblue text-babyblue border-darkblue'} ${inactive && 'bg-gray-500 text-neutral-400 border-stone-700'}
+                            shadow-normal ${!disabled && "active:shadow-down"} ${!disabled && "active:translate-y-1"} ${!disabled && "active:translate-x-[-1px]"}`}
                             key={index}
-                            disabled={active || inactive || allDisabled}
+                            disabled={disabled}
                         >
                             {key}
                         </button>
