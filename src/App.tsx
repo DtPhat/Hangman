@@ -51,11 +51,11 @@ function App() {
   }, [guessedLetters, wordToGuess])
 
   return (
-    <div className='flex justify-center items-center pt-12 bg-forestshore h-screen'>
+    <div className='flex justify-center items-center pt-6 bg-forestshore min-h-screen'>
       {wordToGuess &&
         <div className='bg-neutral-300 rounded-3xl py-6 max-w-[54rem] w-full flex flex-col space-y-6 relative border-4 border-neutral-500 bg-drearylake bg-cover'>
           {(!isWinner && !isLoser)&&
-            <button className='absolute flex flex-col items-center top-0 right-0 active:blur-sm '
+            <button className='invisible md:visible absolute flex flex-col items-center top-0 right-0 active:blur-sm '
               onClick={() => setChances(0)}>
               <img src="/mrhang.jpg" className='w-16 h-20 rounded-bl-2xl rounded-tr-2xl' alt="" width={56} />
               <span className='text-xs font-semibold absolute text-neutral-300 bottom-1'>🏳️Give up</span>
@@ -77,8 +77,8 @@ function App() {
                 <a className='text-5xl uppercase font-bold' href={`https://dictionary.cambridge.org/vi/dictionary/english/${wordToGuess}`} target='_blank'>
                   {wordToGuess}
                 </a>
-                <div className=''>
-                  <button className='absolute left-[40%] text-2xl font-semibold border-2 mt-4 px-3 pb-1 border-neutral-800 rounded-full'
+                <div className='absolute left-6 sm:left-[40%] '>
+                  <button className='text-2xl font-semibold border-2 mt-4 px-3 pb-1 border-neutral-800 rounded-full'
                     onClick={() => {
                       setWordToGuess("")
                       setGuessedLetters([])
